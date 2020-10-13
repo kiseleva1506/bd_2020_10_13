@@ -1,0 +1,1 @@
+mysqldump --opt --where='1 limit 100' mysql help_keyword > ~/BDProjects/bd_2020_10_13/lesson2/task4_script.sql

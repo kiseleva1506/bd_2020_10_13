@@ -67,10 +67,10 @@ ALTER TABLE posts
       ON DELETE SET NULL;
      
 SELECT p.id, p.media_id 
-FROM posts p 
-LEFT JOIN media m 
-ON p.media_id = m.id 
-WHERE m.id IS NULL;
+  FROM posts p 
+    LEFT JOIN media m 
+     ON p.media_id = m.id 
+  WHERE m.id IS NULL;
 
 DELETE FROM posts WHERE id = 61;
 
@@ -92,11 +92,4 @@ ALTER TABLE profiles
 
 DESC profile_statuses;
 ALTER TABLE profiles MODIFY status_id INT UNSIGNED NOT NULL;
-
-DESC users;
-
-
-   
-      
-      
-      
+       

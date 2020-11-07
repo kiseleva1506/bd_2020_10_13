@@ -6,9 +6,9 @@ SELECT
 	gt.name AS gender,
 	COUNT(l.id) AS likes_num
 FROM gender_types gt
-	LEFT JOIN profiles p
+	JOIN profiles p
 		ON gt.id = p.gender_id
-	LEFT JOIN likes l 
+	JOIN likes l 
 		ON p.user_id = l.user_id 
 GROUP BY gender
 ORDER BY likes_num DESC
@@ -36,11 +36,11 @@ FROM
 SELECT 
 	u.first_name,
 	u.last_name,
-	(COUNT(cu.community_id) * 0.7
-		+ COUNT(p.id) * 2
-		+ COUNT(m.id) * 0.4
-		+ COUNT(fs.id) * 0.5
-		+ COUNT(tt.id)) AS activity 
+	(COUNT(DISTINCT cu.community_id) * 0.7
+		+ COUNT(DISTINCT p.id) * 2
+		+ COUNT(DISTINCT m.id) * 0.4
+		+ COUNT(DISTINCT fs.id) * 0.5
+		+ COUNT(DISTINCT tt.id)) AS activity 
 FROM users u
 	LEFT JOIN communities_users cu 
 		ON u.id = cu.user_id

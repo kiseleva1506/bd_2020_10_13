@@ -22,7 +22,7 @@ CREATE TRIGGER products_on_uodate_no_empty_name_or_description BEFORE UPDATE ON 
 FOR EACH ROW 
 BEGIN 
   IF NEW.name IS NULL AND NEW.description IS NULL THEN 
-    SIGNAL SQLSTATE '46000' SET MESSAGE_TEXT = 'UPDATE canceled';
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'UPDATE canceled';
   END IF;
 END//
 
